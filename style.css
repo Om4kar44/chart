@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+.footer {
+  width: 100%;
+  height: 30px; /* Height of the footer */
+  background-color: #80adbe; /* Dark background color */
+  color: white; /* White text color */
+  text-align: center; /* Center align the text */
+  display: flex;
+  justify-content: center; /* Center align horizontally */
+  align-items: center; /* Center align vertically */
+  font-size: 14px; /* Font size for the text */
+  font-family: Arial, sans-serif; /* Font family */
+  position: fixed; /* Make it fixed at the bottom */
+  bottom: 0;
+  left: 0;
+  padding: 10px 0; /* Padding to provide spacing */
+  box-shadow: 0 -4px 10px rgba(29, 7, 101, 0.1); /* Subtle shadow effect */
+}
+
+.footer p {
+  margin: 0; /* Remove margin from the paragraph */
+}
+
+.navbar {
+  width: 100%;
+  height: 50px; /* Reduced height */
+  background: linear-gradient(
+    45deg,
+    #c4d56f,
+    #636ebe,
+    #0db87c
+  ); /* Multi-color gradient */
+  background-size: 200% 200%; /* Adjusted gradient size for smoother effect */
+  animation: gradientAnimation 15s ease infinite; /* Smooth gradient animation */
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0; /* No padding for navbar to ensure left alignment */
+  font-size: 12px; /* Smaller font for compact look */
+  font-family: "Arial", sans-serif;
+  font-weight: 400; /* Lighter font weight */
+  border-radius: 4px; /* Subtle rounded corners */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow for subtle depth */
+  margin-bottom: 8px;
+}
+
+.navbar a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-right: 8px;
+  color: #fff; /* White text color */
+  text-decoration: none;
+  padding: 0 8px; /* Reduced padding between links */
+  transition: color 0.3s ease;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-right: 10px; /* Space between the links */
+}
+
+.navbar a:hover {
+  color: #000000; /* Gold hover effect */
+  text-decoration: underline;
+}
+
+.navbar {
+  justify-content: center; /* Ensures navbar content stays left */
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 153, 51, 0.4),
+      /* Saffron with higher opacity */ rgba(255, 255, 255, 0.3),
+      /* White with higher opacity */ rgba(19, 136, 8, 0.4)
+        /* Green with higher opacity */
+    ),
+    url("https://www.transparenttextures.com/patterns/reticle.png"); /* Subtle texture pattern */
+  background-size: cover; /* Ensures the background pattern covers the entire page */
+  background-attachment: fixed; /* Ensures background stays fixed during scrolling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 112vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Navbar Styles */
+
+/* Wrapper to hold both Chat, Chart, and Table Sections */
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  gap: 20px;
+  flex-wrap: wrap; /* Makes the layout responsive */
+}
+
+/* Left Side (Chat Section) */
+.chat-wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-right: 10px;
+  height: 100%;
+  overflow: auto;
+}
+
+.app-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#prompt {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+#prompt:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+#submit {
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit:hover {
+  background-color: #45a049;
+}
+
+.user-chat-box,
+.ai-chat-box {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  max-width: 80%;
+}
+
+.user-chat-area,
+.ai-chat-area {
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  word-wrap: break-word;
+}
+
+.user-chat-box .user-chat-area {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  color: #2c3e50; /* User input font color */
+}
+
+.ai-chat-box .ai-chat-area {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+  color: #34495e; /* AI generated response font color */
+}
+
+/* Right Side (Chart Section) */
+.chart-wrapper {
+  width: 65%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow: auto;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  resize: both; /* Allow resizing */
+  overflow: auto; /* Prevent content from being clipped during resizing */
+  border: 2px solid #ccc; /* Optional: visible border for better resizing grip */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow for aesthetics */
+}
+
+/* Chart Type Select */
+.chart-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-options select {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 250px;
+  transition: background-color 0.3s;
+}
+
+.chart-options select:hover {
+  background-color: #45a049;
+}
+
+/* Table Styles */
+.data-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.data-table td {
+  background-color: #f9f9f9;
+}
+
+/* Customization Section */
+.customization-wrapper {
+  margin-top: 20px;
+  display: flex;
+  height: 6cm;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 2px;
+}
+
+.customization-wrapper input,
+.customization-wrapper select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 250px;
+  transition: border-color 0.3s;
+}
+
+.customization-wrapper input:focus,
+.customization-wrapper select:focus {
+  border-color: #4caf50;
+}
+
+.download-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 250px;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .chat-wrapper {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .chart-wrapper {
+    width: 100%;
+  }
+
+  .chart-options select,
+  .download-btn,
+  .customization-wrapper input {
+    width: 100%;
+  }
+}
+#allChartsContainer {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#downloadedCharts img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+/* Add this to your style.css file */
+
+/* Resizable container for the chart */

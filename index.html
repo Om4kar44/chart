@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OM-CHART-GPT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  </head>
+</html>
+<!-- Include Chart.js via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#" >About</a>
+    <a href="#" >Charts</a>
+    <a href="#">Chat-Bot</a>
+    <a href="#">settings</a>
+    
+  </div>
+  
+
+  <!-- Wrapper for Chat, Chart, and Table Sections -->
+  <div class="wrapper">
+    <!-- Left Side (Chat Section) -->
+    <div class="chat-wrapper">
+      <div class="app-name">OM-CHART-GPT</div>
+
+      <div class="chat-container">
+        <!-- Chat messages will appear here -->
+      </div>
+
+      <div class="input-container">
+        <textarea
+          id="prompt"
+          placeholder="Type your message..."
+          rows="3"
+        ></textarea>
+        <button id="submit">Send</button>
+      </div>
+    </div>
+
+    <!-- Right Side (Chart Section) -->
+    <div class="chart-wrapper"  styles="padding:8px;">
+      <!-- Chart Customization Section -->
+      <div
+        class="customization-wrapper"
+        style=" 
+          width: 200px;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          background-color: #f9f9f9;
+          font-family: Arial, sans-serif;
+          margin-top: 0px;
+          display: inline-block;
+          vertical-align: top;
+        "
+      >
+        <input
+          type="text"
+          id="chartTitle"
+          placeholder="Enter chart title"
+          title="Set the chart title"
+          style="
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          "
+        />
+        <input
+          type="color"
+          id="chartBorderColor"
+          value="#4caf50"
+          title="Choose the border color"
+          style="
+            width: 30px;
+            height: 20px;
+            border: none;
+            margin-bottom: 8px;
+            padding: 0;
+          "
+        /><br>
+
+        <label
+          for="chartBorderWidth"
+          style="
+            font-size: 10px;
+            margin-right: 6px;
+            font-weight: bold;
+            color: #333;
+          "
+        >
+          Border Width:
+        </label>
+        <input
+          type="range"
+          id="chartBorderWidth"
+          name="chartBorderWidth"
+          min="0.1"
+          max="2"
+          step="0.1"
+          value="1"
+          style="
+            width: 100%;
+            height: 5px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 8px;
+          "
+        />
+        <span
+          id="borderWidthValue"
+          style="
+            font-size: 10px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 6px;
+          "
+          >1</span
+        ><br><br>
+
+        <script>
+          // Update the displayed value as the slider is moved
+          document
+            .getElementById("chartBorderWidth")
+            .addEventListener("input", function () {
+              document.getElementById("borderWidthValue").textContent =
+                this.value;
+            });
+        </script>
+
+        <input
+          type="color"
+          id="chartHoverColor"
+         
+          title="Select hover color"
+          style="width: 30px; height: 20px; border: none; padding: 0"
+        />
+
+        <!-- Refresh Button -->
+        <button
+          onclick="window.location.reload();"
+          style="
+            width: 100%;
+            padding: 6px;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+          "
+        >
+          Refresh Page
+        </button>
+      </div>
+
+      <!-- Chart Type Selector -->
+      <div class="chart-options" style="display: inline-block; margin-left: 10px; vertical-align: top;">
+        <select id="chartTypeSelect" title="Choose the chart type">
+          <option value="bar">Bar Chart</option>
+          <option value="pie">Pie Chart</option>
+          <option value="radar">Radar Chart</option>
+          <option value="doughnut">Doughnut Chart</option>
+          <option value="line">Line Chart</option>
+        </select>
+      </div>
+
+      <canvas id="chartCanvas"></canvas>
+
+      <!-- Table for displaying data -->
+      <div class="table-container" id="tableContainer" style="display: none">
+        <h3>Data Table</h3>
+        <table id="dataTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Download Button -->
+      <button
+        class="download-btn"
+        id="downloadChart"
+        title="Download the chart as an image"
+      >
+        Download Chart
+      </button>
+      <!-- Button to show all downloaded graphs -->
+    
+
+
+      <!-- Container to display all downloaded graphs -->
+       <footer>
+     <p class="footer">om</p>
+       </footer>
+  <script src="chart.js"></script>
+</body>
+</html>
